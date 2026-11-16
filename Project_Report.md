@@ -12,3 +12,5 @@ First upload of the template file on the screen
 Trying to get my head around the rows and the colums
 <img src = "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/20261019_160025.jpg">
 <img src = "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/20261019_161938.jpg">
+
+## state machine
