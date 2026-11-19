@@ -19,7 +19,8 @@ Working around the row and the columns.
 <img src = "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/20261019_161938.jpg" width="400">
 
 ### **02/11/2026**
-**Timing diagram**
+**Timing diagram**  
+<img src= "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/Screenshot%202026-11-02%20171527.png?raw=true" width = "600">
 
 ### **09/11/2026**
 <img src= "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/image.png?raw=true">
