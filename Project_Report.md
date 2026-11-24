@@ -20,7 +20,7 @@ Verilog is a Hardware Description Language, used to design and verify digital ci
 
 
 
-The code in the `VGAColourStripe.v` file 
+The code in the `VGAColourStripe.v` module is composed of both Combinational and Sequential Logic.  
 
 ---  
 ### **19/10/2026**  
@@ -34,6 +34,15 @@ The VGA 640x480 displays images that are 640 pixels wide and 480 pxs in hight.
 ### **26/10/2026**
 **Working around the row and the columns**  
 <img src = "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/20261019_161938.jpg" width="400">  
+To manipulate the with of the stripes I simply changed the value within the statement:  
+_if(row >= 11'd0 && row = 11'd100) begin  
+&emsp;red_next   <= 4'h0;  
+&emsp;green_next <= 4'h8;  
+&emsp;blue_next  <= 4'h0;  
+end_  
+_row_ can have a value between 0 and 799; 600 visible pxs + 15 front porch pxs and 47 back porch pxs.  
+In `VGASync.v` we find the code that controls weather _hcount_ (horizontal count) falls between 0 and 639 to set _hsync = 1_
+
 ---  
 ### **02/11/2026**
 **Timing diagram**  
