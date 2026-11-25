@@ -1,6 +1,6 @@
 # **System on Chip Project**
 
-<!-- Add picture of finished project -->
+<img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/20261116_161420.jpg?raw=true" width="700">
 
 ## Project Overview
 
@@ -285,13 +285,6 @@ A counter can be used to determine when the state machine should transition to t
 By combining the state machine with the pixel coordinates, different patterns can be displayed depending on the current state.
 
 This allows the animation to progress through multiple stages rather than displaying a single static image.
-
-<!-- Add state machine diagram -->
-
-<!-- Add final state machine Verilog code -->
-
-<!-- Describe each state and its transition conditions -->
-
 
 ## **Conclusion**
 
