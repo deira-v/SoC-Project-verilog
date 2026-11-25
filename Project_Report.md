@@ -32,16 +32,14 @@ _if(row >= 11'd0 && row = 11'd100) begin
 &emsp;green_next <= 4'h8;  
 &emsp;blue_next  <= 4'h0;  
 end_  
- _row_ can have a value between 0 and 799 -> .  
-In `VGASync.v` we find the code that controls weather _hcount_ (horizontal count) falls between 0 and 639 to set _hsync = 1_  
-While _col_ goes from 0 to 524 -> .  
-
+The variable _row_ can have a value between 0 and 479, while _col_ can have a value between 0 and 639.  
+  
 <kbd><img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/%7BB9C39D93-5868-4D9C-A7AC-7D695F0AAF60%7D.png?raw=true" width = "300">&ensp;<img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/%7B0089A77B-D568-4D17-B9F7-35927F826996%7D.png?raw=true" width="325"></kbd>  
-The variable _hcount_ can have a value between 0 and 799 (600 visible pxs + 15 front porch pxs + 47 back porch pxs + 96 sync pulses), while _vcount_ goes from 0 to 524 (480 visible pxs + 10 front porch pxs + 33 back porch pxs + 2 sync pulses;  
+In `VGASync.v` we find the code that controls the variable _hcount_ which it can have a value between 0 and 799 (600 visible pxs + 15 front porch pxs + 47 back porch pxs + 96 sync pulses), and _vcount_ that goes from 0 to 524 (480 visible pxs + 10 front porch pxs + 33 back porch pxs + 2 sync pulses;  
   
-The image above shows the code in the _VGASync.v_ file that increments hcount (horizontal count) by one until it has reached the end of the row, and when that happens increments vcount (vertical count) by one until it reaches the bottom of the column.  
+The image above shows the incrementing of hcount (horizontal count) by one until it has reached the end of the row, and when that happens increments vcount (vertical count) by one until it reaches the bottom of the column.  
   
-_Hsync_ and _Vsync_ are active low Synchronization Pulses,  
+_hsync_ and _vsync_ are active low Synchronization Pulses...  
 <kbd><img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/%7B8D38CFE4-5A23-4EE6-86F7-AB06DE7FC3C3%7D.png?raw=true" width="300"> &ensp; <img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/%7B642E0F48-F095-44BD-93F0-1D9DF7384766%7D.png?raw=true" with="250"></kbd>
 
 
@@ -53,11 +51,13 @@ _Hsync_ and _Vsync_ are active low Synchronization Pulses,
 ---  
 ### **02/11/2026**
 **Timing diagram**  
+Every rising edge of the clock other values are incremented, starting with rows which gets initialized with a value of 0, after the first rising edge the col goes from 0 to one and when it reaches a value of 0x31F (799 decimal) the row gets incremented.
+of the 25Mhz clock with a period of 10ns between rising edges.  
+
 <kbd><img src= "https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/Screenshot%202026-11-02%20171527.png?raw=true" width = "600"></kbd>  
-The timing diagram helped me understand the relationship between the **clock** counter, **vid_on**, **rows** and **columns** count.  
+The timing diagram helped me understand the relationship between the *clock* counter, *vid_on*, *rows* and *columns* count.  
   
-Like we saw above 
-We can notice how every rising edge of the clock other values are incremented, starting with rows which becomes one,   
+
 <kbd><img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/Screenshot%202026-11-02%20172044.png?raw=true" width="600"></kbd>
   
 <kbd><img src="https://github.com/deira-v/SoC-Project-verilog/blob/main/docs/assests/images/Screenshot%202026-11-02%20171940.png?raw=true" width="600"></kbd>
